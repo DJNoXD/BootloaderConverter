@@ -1,0 +1,10 @@
+/ramdisk/fstab.star
+/ramdisk/fstab.p990
+/ramdisk/init.star.rc
+/ramdisk/init.p990.rc
+/ramdisk/init.cm.rc
+/ramdisk/init.cm-star.rc
+/system/etc/vold.fstab
+/system/bin/setup-recovery
+/system/bin/check_sdcard.sh
+/META-INF/com/google/android/updater-script
