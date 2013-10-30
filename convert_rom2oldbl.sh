@@ -94,13 +94,14 @@ Convert2oldbl () {
 	eol=$(tail -n 1 $1; echo x); eol="${eol%x}"; eol="${eol#"${eol%?}"}"
 	while IFS= read -r line; do
 		let n+=1
-		if [[ "$line" == *"checking and fixing filesystems"* ]] && [ -e out/ramdisk/init.cm.rc ]; then let lstart=$n; let lend=$n+6; found=true;fi;
+		if [[ "$line" == *"checking and fixing filesystems"* ]] then let lstart=$n; let lend=$n+6; found=true; fi;
 		if [[ "$line" == *"mkdir /data/ve"* ]]; then let lstart=$n; let lend=$n+3; found=true; fi;
 		if [[ "$line" == *"service charger /charger"* ]]; then let lstart=$n; let lend=$n+5; found=true; fi;
 		if [[ $found == true ]]; then
 			#if lines to omit found, print only lines before $lstart and after $lend
 			if [[ $n -lt $start ]] || [[ $n -gt $lend ]]; then
 				WriteLine
+
 			fi;
 		else
 			WriteLine
